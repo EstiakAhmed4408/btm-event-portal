@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beyond the Metrics 4.0 | IUT</title>
+<!-- SOCIAL PREVIEW: crawlers (Facebook/WhatsApp) don't run JS, so edit these tags by hand. Use a full https:// image URL. -->
+<meta name="description" content="Beyond the Metrics Season 4: six competitions by the BTM Department, IUT. Register now.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Beyond the Metrics 4.0">
+<meta property="og:description" content="Six competitions. One stage. Organized by the BTM Department, IUT.">
+<meta property="og:image" content="https://YOUR-SITE.com/assets/fest-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Beyond the Metrics 4.0">
+<meta name="twitter:description" content="Six competitions. One stage. Organized by the BTM Department, IUT.">
+<meta name="twitter:image" content="https://YOUR-SITE.com/assets/fest-logo.png">
+<meta name="theme-color" content="#0D0A17">
+<link rel="icon" href="assets/fest-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* ===== THEME: change colors, fonts, radius here ===== */
+:root{
+  --bg:#0D0A17; --bg-2:#150F24;
+  --ink:#F3EEE7; --mute:#A9A1BA;
+  --accent:#6B2FD6;                                   /* brand purple: paste your exact hex */
+  --accent-hi:color-mix(in srgb,var(--accent) 52%,#fff); /* readable purple for text on dark */
+  --gold:#CDAE72;                                     /* secondary: numbers & highlights only */
+  --line:rgba(243,238,231,.14); --err:#FF9B9B;
+  --r:4px;
+  --f-display:'Instrument Serif',Georgia,serif;
+  --f-body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--f-body);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+ background-image:radial-gradient(60rem 38rem at 88% -8%,color-mix(in srgb,var(--accent) 34%,transparent),transparent 70%),radial-gradient(38rem 30rem at -8% 42%,color-mix(in srgb,var(--accent) 14%,transparent),transparent 70%)}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.07;z-index:99;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+body.lock{overflow:hidden}
+a{color:inherit}
+img{max-width:100%}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+:focus-visible{outline:2px solid var(--accent-hi);outline-offset:3px}
+.lab{font:500 .72rem/1.4 var(--f-body);letter-spacing:.2em;text-transform:uppercase;color:var(--mute)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h2{font-size:clamp(2.2rem,6vw,4.4rem)}
+h3{font-size:clamp(1.5rem,3vw,2rem)}
+.num,.stat b,.cd b{font-variant-numeric:tabular-nums}
+.ic{flex:none}
+section{padding:clamp(72px,10vw,136px) 0;border-top:1px solid var(--line)}
+.sh{display:grid;gap:16px;margin-bottom:clamp(32px,5vw,64px);max-width:720px}
+.sh p{color:var(--mute)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 24px;border-radius:var(--r);font:500 .95rem var(--f-body);text-decoration:none;cursor:pointer;border:1px solid var(--line);background:none;color:var(--ink);transition:background .2s,border-color .2s,transform .2s}
+.btn:hover{border-color:var(--accent-hi)}
+.btn-p{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn-p:hover{background:color-mix(in srgb,var(--accent) 82%,#fff);border-color:transparent}
+.btn[disabled]{opacity:.45;cursor:not-allowed;pointer-events:none}
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;min-height:64px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font:400 1.25rem var(--f-display);margin-right:auto}
+.nav nav{display:flex;gap:4px}
+.nav nav a{padding:12px;font-size:.9rem;color:var(--mute);text-decoration:none}
+.nav nav a:hover{color:var(--ink)}
+.burger{display:none;width:44px;height:44px;place-items:center;background:none;border:1px solid var(--line);color:var(--ink);border-radius:var(--r);cursor:pointer}
+@media(max-width:860px){.burger{display:grid}.nav nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 20px 16px}.nav nav.open{display:flex}.nav nav a{min-height:44px;display:flex;align-items:center;font-size:1.05rem}.nav .btn{padding:0 16px}}
+/* image or monogram */
+.pic{position:relative;display:grid;place-items:center;width:40px;height:40px;flex:none;border:1px solid var(--line);background:color-mix(in srgb,var(--accent) 16%,transparent);overflow:hidden;border-radius:var(--r)}
+.pic b{font:400 .95rem var(--f-display);color:var(--accent-hi)}
+.pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--bg-2)}
+.pic.lg{width:72px;height:72px}.pic.lg b{font-size:1.6rem}
+.pic.xl{width:min(100%,200px);height:auto;aspect-ratio:1;border-color:transparent;background:none}.pic.xl b{font-size:3rem}.pic.xl img{background:none}
+.pic.wide{width:150px;height:64px}
+/* hero */
+.hero{position:relative;border:0;padding:clamp(48px,8vw,104px) 0 0;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px calc(100%/12));opacity:.5;mask-image:linear-gradient(#000,transparent 85%)}
+.chart{position:absolute;inset:auto 0 0 0;width:100%;height:55%;opacity:.9}
+.chart path.l{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s .3s cubic-bezier(.6,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.hero .wrap{position:relative;display:grid;gap:clamp(32px,5vw,56px)}
+.big4{position:absolute;right:-2%;top:-6%;font:400 clamp(9rem,34vw,26rem)/.8 var(--f-display);color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--gold) 55%,transparent);pointer-events:none;user-select:none}
+.hero h1{font-size:clamp(3.2rem,13vw,10rem);max-width:9ch;position:relative}
+.hero h1 em{font-style:italic;color:var(--accent-hi)}
+.hero-row{display:grid;gap:32px;grid-template-columns:1.1fr .9fr;align-items:end;padding-bottom:clamp(120px,16vw,220px)}
+@media(max-width:860px){.hero-row{grid-template-columns:1fr}}
+.tag{font:400 clamp(1.3rem,2.6vw,1.9rem)/1.3 var(--f-display);max-width:24ch;margin-bottom:24px}
+.facts{display:grid;gap:8px;color:var(--mute);margin-bottom:28px}
+.facts span{display:flex;gap:10px;align-items:center}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.org{display:flex;align-items:center;gap:12px;margin-top:32px}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 70%,transparent);backdrop-filter:blur(6px)}
+.cd div{padding:16px 8px;text-align:center;border-left:1px solid var(--line)}
+.cd div:first-child{border:0}
+.cd b{display:block;font:400 clamp(2rem,6vw,3.6rem)/1 var(--f-display);color:var(--gold)}
+.live{grid-column:1/-1;padding:24px;text-align:center;font:400 1.6rem var(--f-display);color:var(--gold)}
+/* stats */
+.stats{padding:0}
+.stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.stat{padding:clamp(24px,4vw,48px) 20px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:block;font:400 clamp(2.6rem,6vw,4.8rem)/1 var(--f-display);color:var(--gold)}
+@media(max-width:560px){.stat:nth-child(odd){border-left:0;padding-left:0}}
+/* about */
+.about-g{display:grid;grid-template-columns:5fr 7fr;gap:clamp(32px,6vw,96px)}
+.about-g p+p{margin-top:16px}
+.about-g .txt p{max-width:62ch;color:#D8D1E2}
+.dept{margin-top:40px;padding-top:32px;border-top:1px solid var(--line);display:flex;gap:20px;align-items:flex-start}
+@media(max-width:860px){.about-g{grid-template-columns:1fr}}
+/* events: asymmetric hairline grid */
+.evg{display:grid;grid-template-columns:repeat(12,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.ev{position:relative;grid-column:span 12;background:var(--bg);padding:clamp(24px,3vw,40px);display:grid;gap:14px;align-content:start;transition:background .25s}
+@media(min-width:861px){.ev:nth-child(6n+1),.ev:nth-child(6n+4){grid-column:span 7}.ev:nth-child(6n+2),.ev:nth-child(6n+3){grid-column:span 5}.ev:nth-child(6n+5),.ev:nth-child(6n){grid-column:span 6}}
+.ev:hover{background:var(--bg-2)}
+.ev::after{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--accent-hi);transition:width .35s}
+.ev:hover::after{width:100%}
+.ev-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.ev-open{all:unset;cursor:pointer}
+.ev-open::before{content:"";position:absolute;inset:0}
+.ev-open:focus-visible{outline:2px solid var(--accent-hi);outline-offset:-4px}
+.ev-s{color:var(--mute);max-width:52ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 32px;margin-top:8px}
+.meta dt{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.meta dd{font-variant-numeric:tabular-nums}
+.ev-f{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;padding-top:16px;border-top:1px solid var(--line)}
+.st{font-size:.8rem;display:flex;align-items:center;gap:8px}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent-hi)}
+.st-closed::before{background:var(--mute)}.st-soon::before{background:var(--gold)}
+.more{display:flex;gap:6px;align-items:center;font-size:.85rem;color:var(--accent-hi)}
+/* schedule */
+.sch{display:grid;grid-template-columns:minmax(120px,220px) 1fr;gap:20px clamp(24px,5vw,80px);padding:32px 0;border-top:1px solid var(--line)}
+.sch:last-child{border-bottom:1px solid var(--line)}
+.sch h3{font-size:clamp(1.8rem,4vw,3rem);color:var(--gold)}
+.row{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border:0}
+.row time{font-variant-numeric:tabular-nums;color:var(--accent-hi);font-weight:500}
+@media(max-width:640px){.sch{grid-template-columns:1fr}.row{grid-template-columns:90px 1fr}}
+/* sponsors */
+.tier{display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:center;padding:28px 0;border-top:1px solid var(--line)}
+.tier>div{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center}
+.tier a{text-decoration:none;display:flex;gap:12px;align-items:center}
+.t-title .pic{width:220px;height:92px}.t-gold .pic{width:160px;height:68px}
+@media(max-width:640px){.tier{grid-template-columns:1fr;gap:12px}}
+/* faq */
+.faq{max-width:860px}
+.faq h3{font-size:inherit;font-family:var(--f-body)}
+.q{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:flex;justify-content:space-between;gap:16px;align-items:center;min-height:64px;padding:16px 0;font:400 clamp(1.2rem,2.5vw,1.6rem)/1.25 var(--f-display);border-top:1px solid var(--line)}
+.q:focus-visible{outline:2px solid var(--accent-hi);outline-offset:2px}
+.q .ic{transition:transform .25s}.q[aria-expanded=true] .ic{transform:rotate(45deg)}
+.a{padding:0 40px 24px 0;color:var(--mute);max-width:64ch}
+.faq>div:last-child{border-bottom:1px solid var(--line)}
+/* contact */
+.ct{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px)}
+.ct ul{list-style:none;padding:0;display:grid;gap:16px;margin-top:16px}
+.ct li a,.ct p a{text-underline-offset:4px}
+.soc{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+@media(max-width:760px){.ct{grid-template-columns:1fr}}
+footer{border-top:1px solid var(--line);padding:48px 0 32px;color:var(--mute);font-size:.9rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between;align-items:center}
+footer nav{display:flex;flex-wrap:wrap;gap:4px 20px}
+footer nav a{min-height:44px;display:inline-flex;align-items:center;text-decoration:none}
+/* dialogs */
+dialog{border:1px solid var(--line);background:var(--bg-2);color:var(--ink);padding:0;width:min(720px,100%);max-height:92dvh;border-radius:var(--r);overflow:auto;margin:auto}
+dialog::backdrop{background:rgba(6,4,12,.78);backdrop-filter:blur(4px)}
+dialog[open]{animation:up .32s cubic-bezier(.2,.8,.2,1)}
+@keyframes up{from{opacity:0;transform:translateY(24px)}}
+.d-in{padding:clamp(24px,4vw,48px);position:relative}
+.x{position:absolute;top:12px;right:12px;width:44px;height:44px;display:grid;place-items:center;background:none;border:1px solid var(--line);color:var(--ink);cursor:pointer;border-radius:var(--r)}
+.d-in h2{font-size:clamp(2rem,5vw,3.2rem);margin:12px 0 16px;padding-right:48px}
+.d-in ol{padding-left:20px;display:grid;gap:8px;margin:12px 0 24px;color:#D8D1E2}
+.facts-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+.facts-g div{background:var(--bg-2);padding:14px 16px}
+.facts-g dt{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:640px){dialog{margin:auto 0 0;border-radius:var(--r) var(--r) 0 0;border-inline:0}}
+/* form */
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:4px 16px}
+.f{display:grid;gap:6px;margin-bottom:12px;align-content:start}
+.f.w{grid-column:1/-1}
+@media(max-width:560px){.fg{grid-template-columns:1fr}}
+label,legend{font-size:.85rem;color:var(--mute)}
+input:not([type=checkbox]),select{min-height:48px;width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--ink);padding:0 14px;font:inherit;border-radius:var(--r)}
+select option{background:var(--bg-2)}
+input[aria-invalid=true],select[aria-invalid=true]{border-color:var(--err)}
+.err{color:var(--err);font-size:.82rem;min-height:1.2em}
+.pay{border:1px solid var(--line);padding:16px;margin:4px 0 16px;color:#D8D1E2;font-size:.92rem;display:grid;gap:4px}
+.pay strong{color:var(--gold);font:400 1.8rem var(--f-display)}
+.chk{display:flex;gap:12px;align-items:flex-start;min-height:44px;color:var(--ink);font-size:.9rem}
+.chk input{width:22px;height:22px;margin-top:2px;accent-color:var(--accent)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.ok{text-align:center;display:grid;gap:16px;justify-items:center;padding:24px 0}
+.ok .ic{color:var(--gold)}
+.ref{font:400 2.4rem var(--f-display);color:var(--gold);letter-spacing:.04em}
+.note{font-size:.82rem;color:var(--mute);border:1px dashed var(--line);padding:10px 14px;border-radius:var(--r)}
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}.chart path.l{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<noscript><p style="padding:24px">Please enable JavaScript to view this site.</p></noscript>
+<div id="root"></div>
+<dialog id="dEv" aria-labelledby="dEvT"></dialog>
+<dialog id="dReg" aria-labelledby="dRegT"></dialog>
+
+<script>
+/* =====================================================================
+   EDIT HERE — all site content lives in CONFIG. Edit text between quotes.
+   Keep the commas and quotes. Dates use the form 2027-02-20T09:00:00+06:00
+   (year-month-day T hour:minute:second +06:00 = Bangladesh time).
+   ===================================================================== */
+const CONFIG = {
+  festName: "Beyond the Metrics",
+  season: "4.0",
+  tagline: "Six competitions where the numbers meet judgement.",
+  startDate: "2027-02-20T09:00:00+06:00",   // countdown target
+  dateText: "20–22 February 2027",
+  venue: "IUT Campus, Gazipur, Bangladesh",
+  registrationDeadline: "2027-02-10T23:59:00+06:00", // used when an event has no deadline of its own
+  organizer: "BTM Department, IUT",
+
+  about: [
+    "Beyond the Metrics is the annual competition fest of the BTM Department. Replace this text with the story of the fest.",
+    "Season 4 brings six events across analytics, strategy and leadership. Add a second paragraph here."
+  ],
+  aboutDept: "Write one or two sentences about the BTM Department at IUT here.",
+
+  stats: [                                   // 3–4 items look best; delete or add lines freely
+    { n: "6",    l: "Events" },
+    { n: "500+", l: "Expected participants" },
+    { n: "৳50K", l: "Prize pool" },
+    { n: "3",    l: "Days" }
+  ],
+
+  /* Any event field you leave out is taken from eventDefaults. Add/remove events freely:
+     one block { ... }, per event. status: "open" | "closed" | "coming-soon" */
+  eventDefaults: {
+    logo: "",
+    full: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    rules: ["Rule one goes here.", "Rule two goes here.", "Rule three goes here."],
+    team: { min: 1, max: 1 },
+    fee: 0,
+    prize: "৳10,000 + Certificates",
+    when: "TBA",
+    venue: "IUT Campus",
+    deadline: "",                             // empty = use registrationDeadline
+    contact: { name: "Contact Person", phone: "01700000000" },
+    status: "open"
+  },
+  events: [
+    { id: "event-1", name: "Event 1", category: "Case Competition", logo: "assets/events/event-1.png", short: "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.", team: { min: 3, max: 4 }, fee: 500, when: "20 Feb, 10:00" },
+    { id: "event-2", name: "Event 2", category: "Quiz", logo: "assets/events/event-2.png", short: "Ut enim ad minim veniam, quis nostrud exercitation ullamco.", team: { min: 2, max: 3 }, fee: 300, when: "20 Feb, 14:00" },
+    { id: "event-3", name: "Event 3", category: "Analytics", logo: "assets/events/event-3.png", short: "Duis aute irure dolor in reprehenderit in voluptate velit.", fee: 200, when: "21 Feb, 10:00" },
+    { id: "event-4", name: "Event 4", category: "Strategy", logo: "assets/events/event-4.png", short: "Excepteur sint occaecat cupidatat non proident, sunt in culpa.", team: { min: 3, max: 4 }, fee: 600, when: "21 Feb, 14:00" },
+    { id: "event-5", name: "Event 5", category: "Pitch", logo: "assets/events/event-5.png", short: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem.", fee: 250, when: "22 Feb, 10:00", status: "coming-soon" },
+    { id: "event-6", name: "Event 6", category: "Open Floor", logo: "assets/events/event-6.png", short: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur.", fee: 0, when: "22 Feb, 14:00" }
+  ],
+
+  schedule: [                                // day, time, activity
+    { day: "Day 1", time: "09:00", title: "Opening ceremony" },
+    { day: "Day 1", time: "10:00", title: "Event 1 begins" },
+    { day: "Day 2", time: "10:00", title: "Event 3 begins" },
+    { day: "Day 3", time: "16:00", title: "Closing and prize giving" }
+  ],
+
+  sponsors: {                                // empty lists are hidden automatically
+    title:    [{ name: "Title Sponsor", logo: "assets/sponsors/sponsor-1.png", url: "" }],
+    gold:     [{ name: "Gold Sponsor 1", logo: "assets/sponsors/sponsor-2.png", url: "" }, { name: "Gold Sponsor 2", logo: "assets/sponsors/sponsor-3.png", url: "" }],
+    partners: [{ name: "Partner 1", logo: "assets/sponsors/sponsor-4.png", url: "" }]
+  },
+
+  faq: [
+    { q: "Who can participate?", a: "Replace with your eligibility rules." },
+    { q: "How do I pay the fee?", a: "Send the fee by bKash or Nagad and enter the transaction ID in the form." },
+    { q: "Can I join more than one event?", a: "Yes, as long as the schedules do not overlap. Register for each event separately." }
+  ],
+
+  contact: {
+    people: [{ name: "Contact Person 1", role: "General Secretary", phone: "01700000000" }, { name: "Contact Person 2", role: "Registration", phone: "01800000000" }],
+    email: "btm@example.com",
+    phone: "01700000000",
+    mapText: "BTM Department, IUT, Board Bazar, Gazipur",
+    mapUrl: "https://maps.google.com/?q=Islamic+University+of+Technology"
+  },
+  social: [{ name: "Facebook", url: "https://facebook.com/" }, { name: "Instagram", url: "https://instagram.com/" }],
+
+  payment: { bkash: "01XXXXXXXXX (Personal)", nagad: "01XXXXXXXXX (Personal)", note: "Use Send Money, then paste the transaction ID below." },
+  endpoint: "https://script.google.com/macros/s/AKfycbztIMPTBJfe3w228E3CFPiKSPtbTC21WHAduM7gyE8R4YaaNTV22viYzf6FI1_NJMqa/exec",          // paste your Google Apps Script Web App URL here (empty = demo mode)
+  fallbackForm: ""       // backup Google Form link
+};
+/* ================== END OF EDITABLE AREA ================== */
+
+/* ---------- helpers ---------- */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const E=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const C=CONFIG,EV=C.events.map(e=>({...C.eventDefaults,...e,team:{...C.eventDefaults.team,...e.team}}));
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const mono=t=>String(t).split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
+// image with monogram underneath: a missing file just leaves the monogram
+const pic=(src,alt,mg,cls='')=>`<span class="pic ${cls}"><b aria-hidden="true">${E(mg)}</b>${src?`<img src="${E(src)}" alt="${E(alt)}" loading="lazy" onerror="this.remove()">`:''}</span>`;
+const I={arrow:'<path d="M5 12h14M13 6l6 6-6 6"/>',cal:'<rect x="3" y="5" width="18" height="16"/><path d="M3 10h18M8 3v4M16 3v4"/>',pin:'<path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/>',x:'<path d="M5 5l14 14M19 5L5 19"/>',plus:'<path d="M12 5v14M5 12h14"/>',menu:'<path d="M4 7h16M4 12h16M4 17h16"/>',check:'<circle cx="12" cy="12" r="9"/><path d="M7.5 12.5l3 3 6-7"/>'};
+const ic=(n,s=18)=>`<svg class="ic" width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">${I[n]}</svg>`;
+const T=d=>d?new Date(d).getTime():0;
+const fmt=d=>d?new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}):'';
+const dl=e=>T(e.deadline)||T(C.registrationDeadline);
+const state=e=>(e.status==='closed'||(dl(e)&&Date.now()>dl(e)))?'closed':e.status==='coming-soon'?'soon':'open';
+const LBL={open:'Registration open',closed:'Registration closed',soon:'Coming soon'};
+const fee=e=>e.fee>0?'৳'+e.fee:'Free';
+const team=e=>e.team.max<=1?'Solo':e.team.min===e.team.max?e.team.max+' members':e.team.min+'–'+e.team.max+' members';
+const tel=p=>`<a href="tel:${E(p)}">${E(p)}</a>`;
+
+/* ---------- page ---------- */
+const SP=C.sponsors||{},hasSp=['title','gold','partners'].some(k=>(SP[k]||[]).length);
+const links=[['about','About',1],['events','Events',EV.length],['schedule','Schedule',C.schedule.length],['sponsors','Sponsors',hasSp],['faq','FAQ',C.faq.length],['contact','Contact',1]].filter(l=>l[2]);
+
+const card=e=>{const s=state(e);return `<article class="ev rv"><div class="ev-top">${pic(e.logo,e.name+' logo',mono(e.name),'lg')}<span class="lab">${E(e.category)}</span></div>
+<h3><button class="ev-open" data-open="${E(e.id)}">${E(e.name)}</button></h3><p class="ev-s">${E(e.short)}</p>
+<dl class="meta"><div><dt>Date</dt><dd>${E(e.when)}</dd></div><div><dt>Fee</dt><dd>${fee(e)}</dd></div><div><dt>Team</dt><dd>${team(e)}</dd></div></dl>
+<div class="ev-f"><span class="st st-${s}">${LBL[s]}</span><span class="more">Details ${ic('arrow',16)}</span></div></article>`};
+
+const days=[...new Set(C.schedule.map(s=>s.day))];
+const tier=(k,name)=>(SP[k]||[]).length?`<div class="tier t-${k}"><span class="lab">${name}</span><div>${SP[k].map(s=>{const i=`${pic(s.logo,s.name,mono(s.name),'wide')}`;return s.url?`<a href="${E(s.url)}" target="_blank" rel="noopener" aria-label="${E(s.name)}">${i}</a>`:`<span>${i}</span>`}).join('')}</div></div>`:'';
+
+$('#root').innerHTML=`
+<header class="nav"><div class="wrap">
+ <a class="brand" href="#top" aria-label="${E(C.festName)} home">${pic('assets/fest-logo.png','','BTM')}<span>BTM ${E(C.season)}</span></a>
+ <nav id="menu" aria-label="Main">${links.map(l=>`<a href="#${l[0]}">${l[1]}</a>`).join('')}</nav>
+ <button class="btn btn-p" data-reg>Register</button>
+ <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu">${ic('menu',22)}</button>
+</div></header>
+<main id="top">
+<section class="hero">
+ <svg class="chart" viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--accent)" stop-opacity=".35"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></linearGradient></defs>
+ <path d="M0 330L120 300L240 318L360 250L480 272L600 190L720 216L840 132L960 152L1080 72L1200 40V400H0Z" fill="url(#g)"/>
+ <path class="l" pathLength="1" d="M0 330L120 300L240 318L360 250L480 272L600 190L720 216L840 132L960 152L1080 72L1200 40" fill="none" stroke="var(--accent-hi)" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>
+ <div class="wrap">
+  <span class="big4" aria-hidden="true">${E(C.season)}</span>
+  <h1>${E(C.festName)}</h1>
+  <div class="hero-row"><div>
+   <p class="tag">${E(C.tagline)}</p>
+   <div class="facts"><span>${ic('cal')}${E(C.dateText)}</span><span>${ic('pin')}${E(C.venue)}</span></div>
+   <div class="ctas"><button class="btn btn-p" data-reg>Register now</button><a class="btn" href="#events">Explore events</a></div>
+   <div class="org">${pic('assets/dept-logo.png','','BTM')}<span class="lab">Organized by ${E(C.organizer)}</span></div>
+  </div>
+  <div class="cd" id="cd" role="timer" aria-label="Time until the fest starts"></div></div>
+ </div>
+</section>
+${C.stats.length?`<section class="stats" aria-label="Key numbers"><div class="wrap">${C.stats.map(s=>`<div class="stat"><b>${E(s.n)}</b><span class="lab">${E(s.l)}</span></div>`).join('')}</div></section>`:''}
+<section id="about"><div class="wrap about-g">
+ <div class="rv"><p class="lab">About</p><h2>The competition</h2></div>
+ <div class="txt rv">${C.about.map(p=>`<p>${E(p)}</p>`).join('')}
+  <div class="dept">${pic('assets/dept-logo.png','','BTM','lg')}<div><p class="lab">The department</p><p>${E(C.aboutDept)}</p></div></div></div>
+</div></section>
+<section id="events"><div class="wrap">
+ <div class="sh"><p class="lab">Events</p><h2>Pick your arena</h2><p>Select an event for rules, prizes and deadlines.</p></div>
+ ${EV.length?`<div class="evg">${EV.map(card).join('')}</div>`:'<p>Events will be announced soon.</p>'}
+</div></section>
+${C.schedule.length?`<section id="schedule"><div class="wrap"><div class="sh"><p class="lab">Schedule</p><h2>Run of show</h2></div>
+ ${days.map(d=>`<div class="sch rv"><h3>${E(d)}</h3><div>${C.schedule.filter(s=>s.day===d).map(s=>`<div class="row"><time>${E(s.time)}</time><span>${E(s.title)}</span></div>`).join('')}</div></div>`).join('')}</div></section>`:''}
+${hasSp?`<section id="sponsors"><div class="wrap"><div class="sh"><p class="lab">Sponsors and partners</p><h2>Backed by</h2></div>${tier('title','Title')}${tier('gold','Gold')}${tier('partners','Partners')}</div></section>`:''}
+${C.faq.length?`<section id="faq"><div class="wrap"><div class="sh"><p class="lab">FAQ</p><h2>Good questions</h2></div><div class="faq">
+ ${C.faq.map((f,i)=>`<div><h3><button class="q" aria-expanded="false" aria-controls="fq${i}" id="fb${i}"><span>${E(f.q)}</span>${ic('plus',22)}</button></h3><div class="a" id="fq${i}" role="region" aria-labelledby="fb${i}" hidden>${E(f.a)}</div></div>`).join('')}</div></div></section>`:''}
+<section id="contact"><div class="wrap ct">
+ <div><p class="lab">Contact</p><h2>Talk to us</h2><div class="soc">${C.social.map(s=>`<a class="btn" href="${E(s.url)}" target="_blank" rel="noopener">${E(s.name)}</a>`).join('')}</div></div>
+ <div><ul>${C.contact.people.map(p=>`<li><strong>${E(p.name)}</strong><br><span style="color:var(--mute)">${E(p.role)}</span><br>${tel(p.phone)}</li>`).join('')}
+ <li><a href="mailto:${E(C.contact.email)}">${E(C.contact.email)}</a></li>
+ <li>${ic('pin',16)} ${C.contact.mapUrl?`<a href="${E(C.contact.mapUrl)}" target="_blank" rel="noopener">${E(C.contact.mapText)}</a>`:E(C.contact.mapText)}</li></ul></div>
+</div></section>
+</main>
+<footer><div class="wrap"><a class="brand" href="#top" style="margin:0">${pic('assets/fest-logo.png','','BTM')}${pic('assets/dept-logo.png','','D')}<span>${E(C.festName)} ${E(C.season)}</span></a>
+ <nav aria-label="Footer">${links.map(l=>`<a href="#${l[0]}">${l[1]}</a>`).join('')}</nav>
+ <p>© ${new Date().getFullYear()} ${E(C.organizer)}</p></div></footer>`;
+
+document.title=`${C.festName} ${C.season} | IUT`;
+
+/* ---------- nav, accordion, reveal, countdown ---------- */
+const bg=$('#burger'),mn=$('#menu');
+bg.onclick=()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.onclick=e=>{if(e.target.closest('a')){mn.classList.remove('open');bg.setAttribute('aria-expanded',false)}};
+$$('.q').forEach(b=>b.onclick=()=>{const o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',!o);$('#'+b.getAttribute('aria-controls')).hidden=o});
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+$$('.rv').forEach(n=>io.observe(n));
+function tick(){const el=$('#cd'),ms=T(C.startDate)-Date.now();
+ if(ms<=0){el.innerHTML='<p class="live">The fest is live</p>';return}
+ const v=[Math.floor(ms/864e5),Math.floor(ms/36e5)%24,Math.floor(ms/6e4)%60,Math.floor(ms/1e3)%60],n=['Days','Hours','Min','Sec'];
+ el.innerHTML=v.map((x,i)=>`<div><b>${String(x).padStart(2,'0')}</b><span class="lab">${n[i]}</span></div>`).join('')}
+tick();setInterval(tick,1000);
+
+/* ---------- dialogs ---------- */
+const dEv=$('#dEv'),dReg=$('#dReg');
+const openD=d=>{d.showModal();document.body.classList.add('lock')};
+[dEv,dReg].forEach(d=>{d.addEventListener('close',()=>document.body.classList.remove('lock'));d.addEventListener('click',e=>{if(e.target===d)d.close()})});
+const xbtn=`<button class="x" type="button" data-x aria-label="Close">${ic('x',20)}</button>`;
+document.addEventListener('click',e=>{
+ const o=e.target.closest('[data-open]');if(o){showEvent(o.dataset.open)}
+ if(e.target.closest('[data-x]'))e.target.closest('dialog').close();
+ const r=e.target.closest('[data-reg]');if(r){dEv.close();showReg(r.dataset.reg)}
+});
+function showEvent(id){const e=EV.find(x=>x.id===id);if(!e)return;const s=state(e),d=dl(e);
+ dEv.innerHTML=`<div class="d-in">${xbtn}${pic(e.logo,e.name+' logo',mono(e.name),'lg')}<p class="lab" style="margin-top:16px">${E(e.category)}</p><h2 id="dEvT">${E(e.name)}</h2>
+ <p>${E(e.full)}</p>
+ <dl class="facts-g"><div><dt>Prize</dt><dd>${E(e.prize)}</dd></div><div><dt>Date and time</dt><dd>${E(e.when)}</dd></div><div><dt>Venue</dt><dd>${E(e.venue)}</dd></div><div><dt>Team</dt><dd>${team(e)}</dd></div><div><dt>Fee</dt><dd>${fee(e)}</dd></div><div><dt>Deadline</dt><dd>${d?fmt(d):'TBA'}</dd></div><div><dt>Contact</dt><dd>${E(e.contact.name)}<br>${tel(e.contact.phone)}</dd></div></dl>
+ ${e.rules.length?`<p class="lab">Rules</p><ol>${e.rules.map(r=>`<li>${E(r)}</li>`).join('')}</ol>`:''}
+ <button class="btn btn-p" data-reg="${E(e.id)}" ${s!=='open'?'disabled':''}>${s==='open'?'Register for this event':LBL[s]}</button></div>`;
+ openD(dEv)}
+
+/* ---------- registration ---------- */
+const fld=(n,l,t='text',x='',w='')=>`<div class="f ${w}"><label for="f-${n}">${l}</label><input id="f-${n}" name="${n}" type="${t}" ${x} aria-describedby="e-${n}"><span class="err" id="e-${n}" role="alert"></span></div>`;
+function showReg(id){const open=EV.filter(e=>state(e)==='open');
+ if(!open.length){dReg.innerHTML=`<div class="d-in">${xbtn}<h2 id="dRegT">Registration</h2><p>No event is open for registration right now.</p>${C.fallbackForm?`<p><a href="${E(C.fallbackForm)}">Register via Google Form</a></p>`:''}</div>`;openD(dReg);return}
+ buildForm(open.find(e=>e.id===id)||open[0],open,{});openD(dReg)}
+function buildForm(e,open,v){const n=e.team.max-1,free=!(e.fee>0);
+ dReg.innerHTML=`<div class="d-in">${xbtn}<p class="lab">Registration</p><h2 id="dRegT">Join ${E(e.name)}</h2>
+ <form id="rf" novalidate><div class="fg">
+ <div class="f w"><label for="f-event">Event</label><select id="f-event" name="event">${open.map(o=>`<option value="${E(o.id)}" ${o.id===e.id?'selected':''}>${E(o.name)} (${fee(o)})</option>`).join('')}</select></div>
+ ${e.team.max>1?fld('team','Team name','text','autocomplete="off"','w'):''}
+ ${fld('name',e.team.max>1?'Team leader name':'Full name','text','autocomplete="name"')}
+ ${fld('email','Email','email','autocomplete="email" inputmode="email"')}
+ ${fld('phone','Phone (BD)','tel','autocomplete="tel" inputmode="tel" placeholder="01XXXXXXXXX"')}
+ ${fld('university','University','text','autocomplete="organization"')}
+ ${fld('sid','Student ID','text','autocomplete="off"')}
+ ${fld('dept','Department')}
+ ${Array.from({length:n},(_,i)=>fld('m'+i,`Member ${i+2} name${i<e.team.min-1?'':' (optional)'}`)+fld('x'+i,`Member ${i+2} email${i<e.team.min-1?'':' (optional)'}`,'email')).join('')}
+ </div>
+ <div class="pay"><span class="lab">Fee</span><strong>${fee(e)}</strong>${free?'<span>No payment needed for this event.</span>':`<span>bKash: ${E(C.payment.bkash)}</span><span>Nagad: ${E(C.payment.nagad)}</span><span>${E(C.payment.note)}</span>`}</div>
+ <div class="fg"><div class="f"><label for="f-method">Payment method</label><select id="f-method" name="method">${free?'<option>Free</option>':'<option>bKash</option><option>Nagad</option>'}</select></div>
+ ${free?'':fld('txn','Transaction ID','text','autocomplete="off"')}</div>
+ <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+ <div class="f"><label class="chk"><input type="checkbox" name="consent" aria-describedby="e-consent"><span>I confirm the details are correct and agree to be contacted about this event.</span></label><span class="err" id="e-consent" role="alert"></span></div>
+ <p class="err" id="e-form" role="alert"></p>
+ <button class="btn btn-p" id="sb" type="submit" style="width:100%">Submit registration</button></form></div>`;
+ const f=$('#rf');Object.entries(v).forEach(([k,x])=>{if(f.elements[k]&&k!=='event'&&k!=='method'&&k!=='consent')f.elements[k].value=x});
+ f.elements.event.onchange=ev=>{const nv=collect(f);buildForm(EV.find(x=>x.id===ev.target.value),open,nv);$('#f-event').focus()};
+ f.onsubmit=ev=>{ev.preventDefault();submit(f,e)}}
+const collect=f=>{const o={};new FormData(f).forEach((x,k)=>o[k]=String(x).trim());o.consent=!!f.elements.consent?.checked;return o};
+function validate(d,e){const r={},req=(k,m='This field is required')=>{if(!d[k])r[k]=m};
+ if(e.team.max>1)req('team','Enter a team name');
+ req('name','Enter a name');req('university','Enter your university');req('sid','Enter your student ID');req('dept','Enter your department');
+ if(!d.email)r.email='Enter your email';else if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d.email))r.email='Enter a valid email, like name@example.com';
+ if(!d.phone)r.phone='Enter your phone number';else if(!/^(?:\+?88)?01[3-9]\d{8}$/.test(d.phone.replace(/[\s-]/g,'')))r.phone='Use a Bangladesh number like 01712345678';
+ for(let i=0;i<e.team.min-1;i++){req('m'+i,'Enter this member’s name');if(!d['x'+i])r['x'+i]='Enter this member’s email';else if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(d['x'+i]))r['x'+i]='Enter a valid email'}
+ if(e.fee>0)req('txn','Enter the transaction ID from your payment');
+ if(!d.consent)r.consent='Please confirm to continue';return r}
+async function submit(f,e){const d=collect(f),er=validate(d,e);
+ $$('.err',f).forEach(x=>x.textContent='');$$('[aria-invalid]',f).forEach(x=>x.removeAttribute('aria-invalid'));
+ const ks=Object.keys(er);
+ if(ks.length){ks.forEach(k=>{$('#e-'+k).textContent=er[k];const i=f.elements[k];if(i)i.setAttribute('aria-invalid','true')});f.elements[ks[0]].focus();return}
+ const ref='BTM4-'+Date.now().toString(36).slice(-5).toUpperCase()+Math.random().toString(36).slice(2,4).toUpperCase(),b=$('#sb');
+ b.disabled=true;b.textContent='Submitting…';
+ if(d.website){return done(ref,e,true)}                       // honeypot hit: pretend success, send nothing
+ const members=Array.from({length:e.team.max-1},(_,i)=>d['m'+i]?{name:d['m'+i],email:d['x'+i]||''}:null).filter(Boolean);
+ const p={ref,event:e.id,eventName:e.name,team:d.team||'',name:d.name,email:d.email,phone:d.phone,university:d.university,sid:d.sid,dept:d.dept,members,method:d.method,txn:d.txn||'',fee:e.fee,submittedAt:new Date().toISOString()};
+ try{if(C.endpoint)await fetch(C.endpoint,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(p)});
+  else{console.log('[BTM demo mode] registration:',p);await sleep(700)}
+  done(ref,e,false)}
+ catch(x){b.disabled=false;b.textContent='Submit registration';$('#e-form').innerHTML='Could not send. Check your connection and try again.'+(C.fallbackForm?` Or <a href="${E(C.fallbackForm)}">register via Google Form</a>.`:'');}}
+function done(ref,e,fake){const demo=!C.endpoint;
+ dReg.querySelector('.d-in').innerHTML=`${xbtn}<div class="ok">${ic('check',56)}<h2 id="dRegT" style="padding:0">You’re registered</h2><p>Your reference ID for ${E(e.name)}</p><p class="ref">${ref}</p>
+ <p style="color:var(--mute)">${fake?'':'A confirmation email is on its way. '}Keep this ID for any follow-up.</p>
+ ${demo?`<p class="note">Demo mode: no data was saved. Add your endpoint URL in CONFIG to go live.${C.fallbackForm?` <a href="${E(C.fallbackForm)}">Register via Google Form instead</a>`:''}</p>`:''}
+ <button class="btn" data-x>Close</button></div>`;dReg.querySelector('.ok h2').focus?.()}
+</script>
+</body>
+</html>
